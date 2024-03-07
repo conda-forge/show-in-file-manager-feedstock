@@ -23,6 +23,7 @@ requirements:
   run:
     - python
     - packaging
+    - build_manpages
     - pyxdg  # [linux]
     - pywin32  # [win]
 test:
