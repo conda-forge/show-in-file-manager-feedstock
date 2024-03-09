@@ -20,11 +20,13 @@ requirements:
   host:
     - python
     - pip
+    - tomli
     - setuptools
     - argparse-manpage
   run:
     - python
     - packaging
+    - tomli
     - setuptools
     - argparse-manpage
     - pyxdg  # [linux]
