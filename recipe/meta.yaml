@@ -20,11 +20,11 @@ requirements:
   host:
     - python
     - pip
+    - tomli
     - argparse-manpage
   run:
     - python
     - packaging
-    - tomli
     - pyxdg  # [linux]
     - pywin32  # [win]
 test:
