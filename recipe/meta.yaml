@@ -1,5 +1,5 @@
 {% set name = "show-in-file-manager" %}
-{% set version = "1.1.4" %}
+{% set version = "1.1.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,10 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 15d16e4a875b9e217b038d02f029c3800c4a6ad645e3f73c9e107ea26bab3adb
+  sha256: ed13a180a1d48fd88fdd4c58bfbcb3860268641a38805192c814d41387192d84
 
 build:
-  skip: True  # [py<38]
+  skip: true  # [py<38]
   entry_points:
     - "showinfilemanager = showinfm.showinfm:main"
   script: {{ PYTHON }} -m pip install . -vv
@@ -20,6 +20,8 @@ requirements:
   host:
     - python
     - pip
+    - tomli
+    - argparse-manpage
   run:
     - python
     - packaging
