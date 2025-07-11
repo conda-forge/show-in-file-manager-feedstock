@@ -25,6 +25,8 @@ requirements:
     - pip
     - tomli
     - argparse-manpage
+    - setuptools
+    - wheel
   run:
     - python
     - packaging
