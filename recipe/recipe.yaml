@@ -51,7 +51,7 @@ tests:
         - "*"
   - requirements:
       run:
-        - ${{ python_min }}.*
+        - python ${{ python_min }}.*
     script:
       - showinfilemanager --help
 
