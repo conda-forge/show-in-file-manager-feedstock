@@ -1,0 +1,67 @@
+schema_version: 1
+
+context:
+  name: show-in-file-manager
+  version: "1.1.6"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/s/show-in-file-manager/show_in_file_manager-${{ version }}.tar.gz
+  sha256: 559b596e3e563800cf69d734cd236824279a9d820d1d841640c5f13e0058f9b6
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv
+  python:
+    entry_points:
+      - showinfilemanager = showinfm.showinfm:main
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - hatchling
+    - hatch-argparse-manpage
+  run:
+    - python >=${{ python_min }}
+    - packaging
+    - if: linux
+      then:
+        - pyxdg >=0.25
+        - __linux
+    - if: win
+      then:
+        - pywin32 >=301
+        - __win
+    - if: osx
+      then:
+        - __osx
+
+tests:
+  - python:
+      imports:
+        - showinfm
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+  - requirements:
+      run:
+        - python ${{ python_min }}.*
+    script:
+      - showinfilemanager --help
+
+about:
+  license: MIT
+  license_file: LICENSE
+  summary: A Python package to open the system file manager and optionally select files in it.
+  homepage: https://github.com/damonlynch/showinfilemanager
+
+extra:
+  recipe-maintainers:
+    - JoeZiminski
+    - thewchan
