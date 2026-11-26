@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: show-in-file-manager
-  version: "1.1.6"
+  version: "1.1.7"
 
 package:
   name: ${{ name|lower }}
@@ -10,7 +10,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/s/show-in-file-manager/show_in_file_manager-${{ version }}.tar.gz
-  sha256: 559b596e3e563800cf69d734cd236824279a9d820d1d841640c5f13e0058f9b6
+  sha256: 830a098d8842628b2ac145808a0c25f2ba9d32d2be009a4a4165501ac20d11c5
 
 build:
   number: 0
